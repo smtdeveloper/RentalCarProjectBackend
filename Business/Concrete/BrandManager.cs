@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
 using DataAccess.Abstract;
+using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
 using System;
 using System.Collections.Generic;
@@ -10,9 +11,16 @@ namespace Business.Concrete
     class BrandManager  : IBrandService
     {
         IBrandDal _brandDal;
+        private EfColorDal efColorDal;
+
         public BrandManager(IBrandDal brandDal)
         {
             _brandDal = brandDal;
+        }
+
+        public BrandManager(EfColorDal efColorDal)
+        {
+            this.efColorDal = efColorDal;
         }
 
         public void Add(Brand entity)
