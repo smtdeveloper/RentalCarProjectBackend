@@ -12,5 +12,7 @@ namespace Business.Constants
         public static string SuccessDeleted = "Silme başarılı.";
         public static string SuccessListed = "Listeleme başarılı.";
         public static string RentalInvalid = "Kiralama başarısız.";
+        public static string MaintenanceTime = "Sistem Bakımda Sonra Gel :) --SMTcoder ";
+
     }
 }

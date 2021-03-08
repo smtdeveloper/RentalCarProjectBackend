@@ -17,11 +17,11 @@ namespace DataAccess.Concrete.InMemory
         {
             _cars = new List<Car> {
 
-            new Car{ Id = 1 , BrandId = 1, ColorId = 1 , DailyPrice = 50000, ModelYear = 2021, Description = " Sıfır "},
-            new Car{ Id = 2 , BrandId = 1, ColorId = 2 , DailyPrice = 60000, ModelYear = 2019, Description = " 2. El "},
-            new Car{ Id = 3 , BrandId = 2, ColorId = 2 , DailyPrice = 30000, ModelYear = 2008, Description = " 2. El "},
-            new Car{ Id = 4 , BrandId = 3, ColorId = 3 , DailyPrice = 10000, ModelYear = 2019, Description = " Sıfır "},
-            new Car{ Id = 5 , BrandId = 3, ColorId = 4 , DailyPrice = 90000, ModelYear = 2020, Description = " 2. El "}
+            new Car{ CarId = 1 , BrandId = 1, ColorId = 1 , DailyPrice = 50000, ModelYear = 2021, Description = " Sıfır "},
+            new Car{ CarId = 2 , BrandId = 1, ColorId = 2 , DailyPrice = 60000, ModelYear = 2019, Description = " 2. El "},
+            new Car{ CarId = 3 , BrandId = 2, ColorId = 2 , DailyPrice = 30000, ModelYear = 2008, Description = " 2. El "},
+            new Car{ CarId = 4 , BrandId = 3, ColorId = 3 , DailyPrice = 10000, ModelYear = 2019, Description = " Sıfır "},
+            new Car{ CarId = 5 , BrandId = 3, ColorId = 4 , DailyPrice = 90000, ModelYear = 2020, Description = " 2. El "}
 
             };
 
@@ -35,7 +35,7 @@ namespace DataAccess.Concrete.InMemory
 
         public void Delete(Car car)
         {
-            Car carToDelete = _cars.SingleOrDefault(c => c.Id == car.Id);
+            Car carToDelete = _cars.SingleOrDefault(c => c.CarId == car.CarId);
             
             _cars.Remove(carToDelete);
         }
@@ -62,7 +62,7 @@ namespace DataAccess.Concrete.InMemory
 
         public List<Car> GetById(int car)
         {
-            return _cars.Where(c => c.Id == car).ToList(); // listeleme yapar
+            return _cars.Where(c => c.CarId == car).ToList(); // listeleme yapar
         }
 
         public List<CarDetailDto> GetCarDetails()
@@ -72,7 +72,7 @@ namespace DataAccess.Concrete.InMemory
 
         public void Update(Car car)
         {
-            Car carToUpdate = _cars.SingleOrDefault(c => c.Id == car.Id);
+            Car carToUpdate = _cars.SingleOrDefault(c => c.CarId == car.CarId);
 
             carToUpdate.DailyPrice = car.DailyPrice;
             carToUpdate.ColorId = car.ColorId;
