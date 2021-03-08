@@ -1,6 +1,7 @@
 ﻿using Business.Concrete;
 using DataAccess.Concrete.EntityFramework;
 using DataAccess.Concrete.InMemory;
+using Entities.Concrete;
 using System;
 
 namespace ConsoleUI
@@ -10,26 +11,35 @@ namespace ConsoleUI
         static void Main(string[] args)
         {
             CarManager carManager = new CarManager(new EfCarDal());
-            
 
-            foreach (var item in carManager.GetAllByColorId(2))
+            var result = carManager.GetCarDetailDtos();
+            if (result.Success == true)
             {
-                //Console.WriteLine(item.ColorId);
-                //Console.WriteLine(item.ColorName);
 
-                Console.WriteLine("ID         : " + item.Id);
-                Console.WriteLine(" Marka    : " + item.BrandId);
-                Console.WriteLine(" RenkCode : " + item.ColorId);
-                Console.WriteLine(" isim     : " + item.Name);
-                Console.WriteLine(" Modeli   : " + item.ModelYear);
-                Console.WriteLine(" Fiyatı   : " + item.DailyPrice);
-                Console.WriteLine(" Açıklama : " + item.Description);
+                foreach (var item in result.Data )
+                {
 
-                Console.WriteLine("--------------------------------------**SMTcoder**");
-                
+                    Console.WriteLine("-------------------------------");
+                    Console.WriteLine(" Araba ismi : " + item.Name);
+                    Console.WriteLine(" Renk       : " + item.ColorName);
+                    Console.WriteLine(" Marka      : " + item.BrandName);
+                    Console.WriteLine(" Fiyat      : " + item.DailyPrice);
+                    Console.WriteLine(" Modeli     : " + item.ModelYear);
+                    Console.WriteLine(" Açıklama   : " + item.Description);
+                    Console.WriteLine("");
+                    Console.WriteLine("Samet Akca");
+
+
+                }
+            }
+            else
+            {
+                Console.WriteLine(result.Message);
             }
 
-           
+
+
+
         }
     }
 }

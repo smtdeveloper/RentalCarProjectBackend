@@ -6,7 +6,7 @@ using System.Text;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    // Contex : Db ile class'larımızı bağlamak.
+    // Contex : Veri Tabanıdaki (Db) Tablolarımızı  ile  class'larımızı bağlar.
     public class ReCarContext : DbContext
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

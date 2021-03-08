@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Core.Utilities;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,11 +7,12 @@ namespace Business.Abstract
 {
     public interface IBussiniesRepository<T>
     {
-        List<T> GetAll();
+       IDataResult<List<T>>  GetAll();
 
+       IDataResult<List<T>> GetById(int entityId);
 
-        //void Add(T entity);
-        //void Update(T entity);
-        //void Delete(T entity);
+       IResult Add(T entity);
+       IResult Update(T entity);
+       IResult Delete(T entity);
     }
 }
