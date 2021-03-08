@@ -19,7 +19,7 @@ namespace ConsoleUI
                 foreach (var item in result.Data )
                 {
 
-                    Console.WriteLine("-------------------------------");
+                    Console.WriteLine("-------------------------------"); 
                     Console.WriteLine(" Araba ismi : " + item.Name);
                     Console.WriteLine(" Renk       : " + item.ColorName);
                     Console.WriteLine(" Marka      : " + item.BrandName);
