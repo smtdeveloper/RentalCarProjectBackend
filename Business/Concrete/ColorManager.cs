@@ -33,17 +33,17 @@ namespace Business.Concrete
 
         public IDataResult<List<Color>>  GetAll()
         {
-          return new SuccessDataResult<List<Color>>(_colorDal.GetAll());
+          return new SuccessDataResult<List<Color>>(_colorDal.GetAll(),Messages.SuccessListed);
         }
 
         public IDataResult<List<Color>>  GetByColorId(int id)
         {
-            return new SuccessDataResult<List<Color>>(_colorDal.GetAll(p => p.ColorId ==   id));
+            return new SuccessDataResult<List<Color>>(_colorDal.GetAll(p => p.ColorId ==   id),Messages.SuccessListed);
         }
 
         public IDataResult<List<Color>> GetById(int entityId)
         {
-            return new SuccessDataResult<List<Color>>(_colorDal.GetAll(c => c.ColorId == entityId));
+            return new SuccessDataResult<List<Color>>(_colorDal.GetAll(c => c.ColorId == entityId), Messages.SuccessListed);
         }
 
         public IResult Update(Color entity)

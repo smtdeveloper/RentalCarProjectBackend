@@ -39,17 +39,17 @@ namespace Business.Concrete
 
         public IDataResult<List<Brand>>  GetAll()
         {
-            return new SuccessDataResult<List<Brand>>(_brandDal.GetAll());
+            return new SuccessDataResult<List<Brand>>(_brandDal.GetAll(),Messages.SuccessListed);
         }
 
         public IDataResult<Brand>  GetByBrandId(int id)
         {
-            return new SuccessDataResult<Brand>(_brandDal.Get(c => c.BrandId == id));
+            return new SuccessDataResult<Brand>(_brandDal.Get(c => c.BrandId == id), Messages.SuccessListed);
         }
 
         public IDataResult<List<Brand>>  GetById(int entityId)
         {
-            return new SuccessDataResult<List<Brand>>(_brandDal.GetAll(b => b.BrandId == entityId));
+            return new SuccessDataResult<List<Brand>>(_brandDal.GetAll(b => b.BrandId == entityId),Messages.SuccessListed);
         }
 
         public IResult Update(Brand entity)
