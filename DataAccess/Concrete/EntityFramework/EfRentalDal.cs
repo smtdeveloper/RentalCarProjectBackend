@@ -15,7 +15,9 @@ namespace DataAccess.Concrete.EntityFramework
         public List<RentalDetailDto> GetRentalDetailDto()
         {
             using (ReCarContext carContext = new ReCarContext())
-            {
+            { 
+
+                // equals  ==
                 var result = from renta in carContext.Rentals
                              join custo in carContext.Customers
                              on renta.CustomerId equals custo.CustomerId
