@@ -1,5 +1,8 @@
 ﻿using Business.Abstract;
 using Business.Constants;
+using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
+using Core.Aspects.CrossCuttingConcerns.Validation;
 using Core.Utilities;
 using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework;
@@ -25,8 +28,10 @@ namespace Business.Concrete
             this.efColorDal = efColorDal;
         }
 
+        [ValidationAspect(typeof(BrandValidator))]
         public IResult Add(Brand entity)
         {
+            ValidationTool.Validate(new BrandValidator(), entity);
             _brandDal.Add(entity);
             return new SuccessResult(Messages.SuccessAdded);
         }

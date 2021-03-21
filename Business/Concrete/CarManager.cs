@@ -1,9 +1,13 @@
 ﻿using Business.Abstract;
 using Business.Constants;
+using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
+using Core.Aspects.CrossCuttingConcerns.Validation;
 using Core.Utilities;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using Entities.DTOs;
+using FluentValidation;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -20,21 +24,13 @@ namespace Business.Concrete
             _carDal = carDal;
         }
 
+        [ValidationAspect(typeof(CarValidator))]
         public IResult Add(Car entity)
         {
-            if (entity.Name.Length >= 2 && entity.DailyPrice > 0 )
-            {
-                _carDal.Add(entity);
-                return new SuccessResult(Messages.SuccessAdded);
-            }
-            else
-            {
-                return new ErrorResult(Messages.RentalInvalid);
-                //Console.WriteLine("Gerekli şartlara uygun değil!");
-            }
-
-           
-
+            //business codes (İş Kodları)
+            _carDal.Add(entity);
+            return new ErrorResult(Messages.RentalInvalid);
+          
         }
 
         public IResult Delete(Car entity)

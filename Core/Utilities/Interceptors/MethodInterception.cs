@@ -5,6 +5,8 @@ using System.Text;
 
 namespace Core.Utilities.Interceptors
 {
+    // Bütünn methodların catısı buraı :)
+
     public class MethodInterception : MethodInterceptionBaseAttribute
     {
 
@@ -33,6 +35,7 @@ namespace Core.Utilities.Interceptors
                     OnSuccess(invocation);
                 }
             }
+
             OnAfter(invocation);
         }
     }

@@ -1,0 +1,26 @@
+
+-----------------------------------------------------------------------------
+Business : 
+
+Autofac						 
+Autofac.Extras.DynamicProxy  
+FluentValidation
+Microsoft.AspNetCore.Http.Features
+-----------------------------------------------------------------------------
+Core :
+
+Autofac
+Autofac.Extras.DynamicProxy
+Autofac.Extensions.DependencyInjection
+Microsoft.EntityFrameworkCore.SqlServer
+FluentValidation
+Microsoft.AspNetCore.Http.Features
+-----------------------------------------------------------------------------
+DataAccess :
+
+Microsoft.EntityFrameworkCore.SqlServer
+-----------------------------------------------------------------------------
+WebAPI :
+
+Autofac.Extensions.DependencyInjection
+-----------------------------------------------------------------------------

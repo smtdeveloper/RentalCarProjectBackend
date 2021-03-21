@@ -13,6 +13,6 @@ namespace Business.Constants
         public static string SuccessListed = "Listeleme başarılı.";
         public static string RentalInvalid = "Kiralama başarısız.";
         public static string MaintenanceTime = "Sistem Bakımda Sonra Gel :) --SMTcoder ";
-
+        public static string CarImageLimit = "Bir arabaya 5'ten fazla resim eklenemez.";
     }
 }
