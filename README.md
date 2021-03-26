@@ -1,6 +1,10 @@
 GitHub License GitHub Repo stars GitHub repo size
+
+<br>
 <br>
 <a href="https://github.com/smtdeveloper/SametAkca">Read Me :) Daha Fazla</a>
+
+<br>
 <br>
 ReCap Project : Araba Kiralama Sistemi
 Rent A Car
