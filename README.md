@@ -5,7 +5,7 @@ GitHub License GitHub Repo stars GitHub repo size
 
 <br>
 <br>
-<a href="https://www.instagram.com/smtcoder/"> instagram Sayfam :  @SMTcoder :)  </a>
+<a href="https://www.instagram.com/smtcoder/"> instagram  :  @SMTcoder :)  </a>
 <br> 
 <a href="https://www.linkedin.com/in/samet-akca-2a4bbb1a8/"> linkedin : @SametAkca :)  </a>
 <br>
