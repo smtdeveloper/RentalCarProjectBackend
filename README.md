@@ -241,6 +241,7 @@ SQL Query
      📃 RentACarSQLQuery.sql
 
 Tables in Database
+
 Brands	CarImages	Cars	Colors	Customers	OperationClaims	Rentals	UserOperationClaims	Users
 Variable Name	Data Type
 Id	INT
@@ -291,9 +292,9 @@ Console Output
 
 
 
-<a href="https://github.com/smtdeveloper/SametAkca">Read Me :) Daha Fazla</a>
+<a href="https://github.com/smtdeveloper/SametAkca"> Read Me :) Daha Fazla </a>
 
 SMTdeveloper
 <br>
-2021 © <a href="https://github.com/smtdeveloper">Samet Akca</a>
+2021 © <a href="https://github.com/smtdeveloper"> Samet Akca </a>
 
