@@ -287,6 +287,6 @@ Console Output
 
 <a href="https://github.com/smtdeveloper/SametAkca">Read Me :)</a>
 
-License
-MIT © Samet Akca
+SMTdeveloper
+2021 © <a href="https://github.com/smtdeveloper">Samet Akca</a>
 
