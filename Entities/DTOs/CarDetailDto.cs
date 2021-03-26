@@ -16,8 +16,5 @@ namespace Entities.DTOs
         public int ModelYear { get; set; }
         public string Description { get; set; }
 
-
-
-
     }
 }

@@ -32,7 +32,7 @@ namespace Business.Concrete
 
             if (result != null)
             {
-                return result;
+                return result;  // hata döndürür
             }
 
             carImage.ImagePath = FileHelper.Add(file);
@@ -83,13 +83,14 @@ namespace Business.Concrete
         private IResult CheckCarImageLimit(int carId)
         {
             var CarImages = _carImageDal.GetAll(c => c.CarId == carId).Count;
-            if (CarImages >= 5)
+            if (CarImages > 5)
             {
                 return new ErrorResult(Messages.CarImageLimit);
             }
 
             return new SuccessResult();
         }
+
         private IResult ShowDefaultImage(List<CarImage> result, int CarId)
         {
             if (!result.Any())

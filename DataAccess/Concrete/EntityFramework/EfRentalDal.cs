@@ -23,7 +23,7 @@ namespace DataAccess.Concrete.EntityFramework
                              on renta.CustomerId equals custo.CustomerId
 
                              join use in carContext.Users
-                             on custo.UserId equals use.UserId
+                             on custo.UserId equals use.Id
 
                              join car in carContext.Cars
                              on renta.CarId equals car.CarId

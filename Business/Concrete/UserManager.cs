@@ -3,9 +3,10 @@ using Business.Constants;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Validation;
 using Core.Aspects.CrossCuttingConcerns.Validation;
+using Core.Concrete;
+using Core.Entities.Concrete;
 using Core.Utilities;
 using DataAccess.Abstract;
-using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -41,7 +42,17 @@ namespace Business.Concrete
 
         public IDataResult<List<User>> GetById(int entityId)
         {
-            return new SuccessDataResult<List<User>>(_userDal.GetAll(u => u.UserId == entityId), Messages.SuccessListed);
+            return new SuccessDataResult<List<User>>(_userDal.GetAll(u => u.Id == entityId), Messages.SuccessListed);
+        }
+
+        public User GetByMail(string email)
+        {
+            return _userDal.Get(u => u.Email == email);
+        }
+
+        public List<OperationClaim> GetClaims(User user)
+        {
+            return _userDal.GetClaims(user);
         }
 
         public IResult Update(User entity)

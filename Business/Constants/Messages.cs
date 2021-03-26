@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using System.Text;
 
 namespace Business.Constants
@@ -14,5 +15,6 @@ namespace Business.Constants
         public static string RentalInvalid = "Kiralama başarısız.";
         public static string MaintenanceTime = "Sistem Bakımda Sonra Gel :) --SMTcoder ";
         public static string CarImageLimit = "Bir arabaya 5'ten fazla resim eklenemez.";
+        public static string AuthorizationDenied = "Yetkiniz Yok";
     }
 }
