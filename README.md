@@ -1,8 +1,8 @@
 GitHub License GitHub Repo stars GitHub repo size
 
 <br>
-<h1> <a href="https://github.com/smtdeveloper/SametAkca">Read Me :) Daha Fazla</a>
- Read Me </h1>
+<h2> <a href="https://github.com/smtdeveloper/SametAkca">Read Me :) Daha Fazla</a>
+ </h2>
 <br>
 
 
