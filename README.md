@@ -1,5 +1,7 @@
 GitHub License GitHub Repo stars GitHub repo size
-
+<br>
+<a href="https://github.com/smtdeveloper/SametAkca">Read Me :) Daha Fazla</a>
+<br>
 ReCap Project : Araba Kiralama Sistemi
 Rent A Car
 
@@ -285,8 +287,9 @@ Console Output
 
 
 
-<a href="https://github.com/smtdeveloper/SametAkca">Read Me :)</a>
+<a href="https://github.com/smtdeveloper/SametAkca">Read Me :) Daha Fazla</a>
 
 SMTdeveloper
+<br>
 2021 © <a href="https://github.com/smtdeveloper">Samet Akca</a>
 
