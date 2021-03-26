@@ -5,6 +5,10 @@ GitHub License GitHub Repo stars GitHub repo size
 <a href="https://github.com/smtdeveloper/SametAkca">Read Me :) Daha Fazla</a>
 
 <br>
+<a href="https://www.instagram.com/smtcoder/"> @SMTcoder :) instagram Sayfam </a>
+<br>
+<br>
+<a href="https://www.linkedin.com/in/samet-akca-2a4bbb1a8/"> @SametAkca :) linkedin </a>
 <br>
 ReCap Project : Araba Kiralama Sistemi
 Rent A Car
