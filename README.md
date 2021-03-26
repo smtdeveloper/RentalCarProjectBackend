@@ -1,9 +1,12 @@
 GitHub License GitHub Repo stars GitHub repo size
+
 <br>
+<h1> Read Me </h1>
 <br>
 <a href="https://github.com/smtdeveloper/SametAkca">Read Me :) Daha Fazla</a>
 
 <br>
+<h1> Sosyal Medya Hesaplarım </h1>
 <br>
 <a href="https://www.instagram.com/smtcoder/"> instagram  :  @SMTcoder :)  </a>
 <br> 
