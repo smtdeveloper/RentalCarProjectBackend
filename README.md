@@ -29,7 +29,7 @@ Tables in Database
 Output
 Files
 License
-Installation
+Installation 
 # Clone to repository
 $ git clone https://github.com/smtdeveloper/ReCarProject
 # Go to the folder you cloned
