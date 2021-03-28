@@ -3,7 +3,6 @@ using Business.Constants;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Validation;
 using Core.Aspects.CrossCuttingConcerns.Validation;
-using Core.Concrete;
 using Core.Entities.Concrete;
 using Core.Utilities;
 using DataAccess.Abstract;

@@ -46,8 +46,6 @@ namespace Business.DependencyResolvers.Autofac
 
             builder.RegisterType<JwtHelper>().As<ITokenHelper>();
 
-            builder.RegisterType<HttpContextAccessor>().As<IHttpContextAccessor>();
-
 
 
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();

@@ -1,4 +1,4 @@
-﻿using Core.Concrete;
+﻿using Core.Entities.Concrete;
 using Core.Utilities;
 using Core.Utilities.Security.JWT;
 using Entities.DTOs;

@@ -98,12 +98,13 @@ namespace Business.Concrete
                 var DefaultCarImage = new CarImage
                 {
                     CarId = CarId,
-                    ImagePath = Environment.CurrentDirectory + @"\Images\Default    Car.jpg",
+                    ImagePath = Environment.CurrentDirectory + @"\Images\DefaultCar.jpg",
                     Date = DateTime.Now
                 };
                 result.Add(DefaultCarImage);
             }
             return new SuccessResult();
         }
+
     }
 }

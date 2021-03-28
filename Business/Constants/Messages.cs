@@ -16,5 +16,6 @@ namespace Business.Constants
         public static string MaintenanceTime = "Sistem Bakımda Sonra Gel :) --SMTcoder ";
         public static string CarImageLimit = "Bir arabaya 5'ten fazla resim eklenemez.";
         public static string AuthorizationDenied = "Yetkiniz Yok";
+        public static string CarAdded= "Araba Eklendi";
     }
 }

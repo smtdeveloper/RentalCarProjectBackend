@@ -1,6 +1,5 @@
-﻿using Core.Concrete;
+﻿using Core.Entities.Concrete;
 using Core.DataAccess.EntityFramework;
-using Core.Entities.Concrete;
 using Entities.Concrete;
 using System;
 using System.Collections.Generic;

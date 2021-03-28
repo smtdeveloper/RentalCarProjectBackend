@@ -1,5 +1,5 @@
 ﻿using Business.Abstract;
-using Core.Concrete;
+using Core.Entities.Concrete;
 using Core.Utilities;
 using Core.Utilities.Security.Hashing;
 using Core.Utilities.Security.JWT;

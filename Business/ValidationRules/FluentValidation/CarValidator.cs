@@ -11,7 +11,7 @@ namespace Business.ValidationRules.FluentValidation
         public CarValidator()
         {
             RuleFor(c => c.Name).NotEmpty();
-            RuleFor(c => c.Name).MinimumLength(2);
+            
             RuleFor(c => c.DailyPrice).NotEmpty();
             RuleFor(c => c.DailyPrice).GreaterThan(0);
             RuleFor(c => c.DailyPrice).GreaterThan(50).When(c => c.BrandId == 1); // BrandId'si 1 olanlar en az günlük fiyatı  50 olmalı.
