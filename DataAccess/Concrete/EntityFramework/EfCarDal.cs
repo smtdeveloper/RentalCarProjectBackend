@@ -14,17 +14,18 @@ namespace DataAccess.Concrete.EntityFramework
 {
     public class EfCarDal : EfEntityRepositoryBase<Car, ReCarContext>, ICarDal
     {
-        public List<CarDetailDto> GetCarDetails()
+        public List<CarDetailDto> GetCarDetails(Expression<Func<Car, bool>> filter = null)
         {
             //  equals == karsılaştırma yapar
             using (ReCarContext carContext = new ReCarContext())
-            {
-                var result = from car in carContext.Cars
+            {//buradaki hataları düzeltelim tamamdır
+                  IQueryable<CarDetailDto> result = from car in filter is null ? carContext.Cars : carContext.Cars.Where(filter)
                              join color in carContext.Colors
                              on car.ColorId equals color.ColorId
 
                              join brand in carContext.Brands
                              on car.BrandId equals brand.BrandId
+
                              select new CarDetailDto
                              {
                                  CarId = car.CarId,
@@ -33,7 +34,7 @@ namespace DataAccess.Concrete.EntityFramework
                                  DailyPrice = car.DailyPrice,
                                  Description = car.Description,
                                  ModelYear = car.ModelYear,
-                                 Name = car.Name
+                                 Name = car.ModelName
 
 
                              };

@@ -29,8 +29,8 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(CarValidator))]
-        [SecuredOperation("product.add,admin")]
-        [CacheRemoveAspect("ICarSercive.Get")]
+         [SecuredOperation("product.add , admin , moderator")]
+       [CacheRemoveAspect("ICarSercive.Get")]
         public IResult Add(Car entity)
         {
             //business codes (İş Kodları)
@@ -66,7 +66,7 @@ namespace Business.Concrete
        
         public IDataResult<List<Car>>  GetAll()
         {
-            if (DateTime.Now.Hour == 21)
+            if (DateTime.Now.Hour ==2)
             {
                 return new ErrorDataResult<List<Car>>(Messages.MaintenanceTime);
 
@@ -77,14 +77,15 @@ namespace Business.Concrete
 
 
         
-        public IDataResult<List<Car>>  GetAllByBrandId(int id)
+        public IDataResult<List<CarDetailDto>>  GetAllByBrandId(int id)
         {
-            return new   SuccessDataResult<List<Car>>(_carDal.GetAll(c => c.BrandId == id), Messages.SuccessListed); 
+            return new   SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(c => c.BrandId == id), Messages.SuccessListed);
+         // return new SuccessDataResult<List<Product>>(_productDal.GetAll(p => p.CategoryId == id));
         }
 
-        public IDataResult<List<Car>>  GetAllByColorId(int id)
+        public IDataResult<List<CarDetailDto>>  GetAllByColorId(int id)
         {
-            return new SuccessDataResult<List<Car>>(_carDal.GetAll(c => c.ColorId == id), Messages.SuccessListed);
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(c => c.ColorId == id), Messages.SuccessListed);
         }
 
 
@@ -99,7 +100,7 @@ namespace Business.Concrete
         public IDataResult<List<CarDetailDto>>  GetCarDetailDtos()
         {
 
-            if (DateTime.Now.Hour == 18)
+            if (DateTime.Now.Hour == 2)
             {
                 return new ErrorDataResult<List<CarDetailDto>>(Messages.MaintenanceTime);
 
