@@ -18,7 +18,7 @@ namespace DataAccess.Concrete.EntityFramework
         {
             //  equals == karsılaştırma yapar
             using (ReCarContext carContext = new ReCarContext())
-            {//buradaki hataları düzeltelim tamamdır
+            {
                   IQueryable<CarDetailDto> result = from car in filter is null ? carContext.Cars : carContext.Cars.Where(filter)
                              join color in carContext.Colors
                              on car.ColorId equals color.ColorId
