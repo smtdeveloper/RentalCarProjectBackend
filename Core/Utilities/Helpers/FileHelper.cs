@@ -6,49 +6,61 @@ using System.Text;
 
 namespace Core.Utilities.Helpers
 {
-   public  class FileHelper
+   public  class FileHelper  // : IFileHelper
     {
-
-
         public static string Add(IFormFile file)
         {
-            string sourcepath = Path.GetTempFileName();
-
-            if (file != null)
+            var sourcepath = Path.GetTempFileName();
+            if (file.Length > 0)
             {
-                using (var Upload = new FileStream(sourcepath, FileMode.Create)) { file.CopyTo(Upload); }
+                using (var stream = new FileStream(sourcepath, FileMode.Create))
+                {
+                    file.CopyTo(stream);
+                }
             }
-            string filepath = FilePath(file);
-            File.Move(sourcepath, filepath);
-            return filepath;
-
+            var result = newPath(file);
+            File.Move(sourcepath, result.newPath);
+            return result.Path2.Replace("\\", "/");
         }
-
         public static IResult Delete(string path)
         {
-            File.Delete(path);
+            path = path.Replace("/", "\\");
+            try
+            {
+                File.Delete(path);
+            }
+            catch (Exception exception)
+            {
+                return new ErrorResult(exception.Message);
+            }
+
             return new SuccessResult();
         }
         public static string Update(string sourcePath, IFormFile file)
         {
-            string result = FilePath(file);
-            if (sourcePath.Length != 0)
+            var result = newPath(file);
+            if (sourcePath.Length > 0)
             {
-                using (var Upload = new FileStream(result, FileMode.Create)) { file.CopyTo(Upload); }
+                using (var stream = new FileStream(result.newPath, FileMode.Create))
+                {
+                    file.CopyTo(stream);
+                }
             }
             File.Delete(sourcePath);
-            return result;
+            return result.Path2.Replace("\\", "/");
         }
-        public static string FilePath(IFormFile file)
+        public static (string newPath, string Path2) newPath(IFormFile file)
         {
-            FileInfo fileInfo = new FileInfo(file.FileName);
-            string fileExtension = fileInfo.Extension;
+            FileInfo ff = new FileInfo(file.FileName);
+            string fileExtension = ff.Extension;
 
-            string path = Environment.CurrentDirectory + @"\Images";
-            string newPath = Guid.NewGuid().ToString() + fileExtension;
+            string path = Environment.CurrentDirectory + @"\wwwroot\images";
+            var newPath = Guid.NewGuid().ToString() + "_" + DateTime.Now.Month + "_" + DateTime.Now.Day + "_" + DateTime.Now.Year + fileExtension;
+            //string webPath = string.Format("/Images/{0}",newPath);
 
             string result = $@"{path}\{newPath}";
-            return result;
+            return (result, $"{newPath}");
         }
+
     }
 }
