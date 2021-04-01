@@ -1,13 +1,15 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿
 using System;
+using Microsoft.AspNetCore.Http;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
 namespace Core.Utilities.Helpers
 {
-   public  class FileHelper  // : IFileHelper
+    public class FileHelper
     {
+
         public static string Add(IFormFile file)
         {
             var sourcepath = Path.GetTempFileName();
@@ -54,7 +56,7 @@ namespace Core.Utilities.Helpers
             FileInfo ff = new FileInfo(file.FileName);
             string fileExtension = ff.Extension;
 
-            string path = Environment.CurrentDirectory + @"\wwwroot\images";
+            string path = Environment.CurrentDirectory + @"\images";
             var newPath = Guid.NewGuid().ToString() + "_" + DateTime.Now.Month + "_" + DateTime.Now.Day + "_" + DateTime.Now.Year + fileExtension;
             //string webPath = string.Format("/Images/{0}",newPath);
 

@@ -19,28 +19,34 @@ namespace DataAccess.Concrete.EntityFramework
             //  equals == karsılaştırma yapar
             using (ReCarContext carContext = new ReCarContext())
             {
-                  IQueryable<CarDetailDto> result = from car in filter is null ? carContext.Cars : carContext.Cars.Where(filter)
-                             join color in carContext.Colors
-                             on car.ColorId equals color.ColorId
+                IQueryable<CarDetailDto> result = from car in filter is null ? carContext.Cars : carContext.Cars.Where(filter)
+                                                  join color in carContext.Colors
+                                                  on car.ColorId equals color.ColorId
 
-                             join brand in carContext.Brands
-                             on car.BrandId equals brand.BrandId
+                                                  join brand in carContext.Brands
+                                                  on car.BrandId equals brand.BrandId
 
-                             select new CarDetailDto
-                             {
-                                 CarId = car.CarId,
-                                 BrandName = brand.BrandName,
-                                 ColorName = color.ColorName,
-                                 DailyPrice = car.DailyPrice,
-                                 Description = car.Description,
-                                 ModelYear = car.ModelYear,
-                                 Name = car.ModelName
-
-
-                             };
+                                                  join image in carContext.CarImages
+                                                  on car.CarId equals image.CarId
+                                                   
+                                                  select new CarDetailDto
+                                                  {
+                                                      CarId = car.CarId,
+                                                      BrandName = brand.BrandName,
+                                                      ColorName = color.ColorName,
+                                                      DailyPrice = car.DailyPrice,
+                                                      Description = car.Description,
+                                                      ModelYear = car.ModelYear,
+                                                      Name = car.ModelName,
+                                                      CarImageDate = image.Date,
+                                                      ImagePath = image.ImagePath
+                                                      //CarImageDate = (from carImage in context.CarImages where carImage.CarId == c.CarId select carImage.Date).FirstOrDefault().Da
+                                                  }; //IQueryable<CarDetailDto>
                 return result.ToList();
 
             }
         }
     }
 }
+
+
