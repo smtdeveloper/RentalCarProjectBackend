@@ -5,7 +5,12 @@ GitHub License GitHub Repo stars GitHub repo size
  </h2>
 <br>
 
-
+<h3> 
+ - Bu proje SOLID prensiplerine uygun bir şekilde, eğitim tekrarı niteliğinde hazırlanmıştır.<br>
+ - Proje Aspect'ler (Validation[FluentValidation], Transaction, Cache, Performance) barındırmaktadır.<br>
+ - JWT entegre edilmiştir ve Autofac desteği kullanılmıştır. <br>
+</h3>
+<br>
 ReCap Project : Araba Kiralama Sistemi
 Rent A Car
 
