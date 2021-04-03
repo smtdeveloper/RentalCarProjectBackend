@@ -16,7 +16,7 @@ namespace Entities.DTOs
         public int ModelYear { get; set; }
 
         public string Description { get; set; }
-        public DateTime CarImageDate { get; set; } // burdan 
+        public string CarImageDate { get; set; } 
         public string ImagePath { get; set; }
 
     }

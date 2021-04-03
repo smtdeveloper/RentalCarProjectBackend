@@ -66,11 +66,11 @@ namespace Business.Concrete
        
         public IDataResult<List<Car>>  GetAll()
         {
-            if (DateTime.Now.Hour ==5)
-            {
-                return new ErrorDataResult<List<Car>>(Messages.MaintenanceTime);
+            //if (DateTime.Now.Hour ==5)
+            //{
+            //    return new ErrorDataResult<List<Car>>(Messages.MaintenanceTime);
 
-            }
+            //}
 
             return new SuccessDataResult<List<Car>>(_carDal.GetAll(),Messages.SuccessListed);
         }
@@ -96,17 +96,21 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Car>>(_carDal.GetAll(c => c.CarId == entityId), Messages.SuccessListed);
         }
 
-       
+        public IDataResult<List<CarDetailDto>> GetCarDetail(int carId)
+        {
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(c => c.CarId == carId), Messages.SuccessListed);
+        }
+
         public IDataResult<List<CarDetailDto>>  GetCarDetailDtos()
         {
 
-            if (DateTime.Now.Hour == 5)
-            {
-                return new ErrorDataResult<List<CarDetailDto>>(Messages.MaintenanceTime);
+            //if (DateTime.Now.Hour == 5)
+            //{
+            //    return new ErrorDataResult<List<CarDetailDto>>(Messages.MaintenanceTime);
 
-            }
+            //}
 
-            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(),Messages.SuccessListed);
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(), Messages.SuccessListed);
 
         }
 

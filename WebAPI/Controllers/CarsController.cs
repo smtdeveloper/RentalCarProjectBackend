@@ -77,7 +77,7 @@ namespace WebAPI.Controllers
 
         }
 
-        [HttpGet("getcardetail")]
+        [HttpGet("getcardetails")]
         public IActionResult GetCarDetailDtos()
         {
             Thread.Sleep(1000); 
@@ -89,6 +89,17 @@ namespace WebAPI.Controllers
 
             return BadRequest(result);
 
+        }
+
+        [HttpGet("getcardetail")]
+        public IActionResult GetCarDetail(int carId)
+        {
+            var result = _carService.GetCarDetail(carId);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
         }
 
 

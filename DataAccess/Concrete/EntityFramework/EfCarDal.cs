@@ -26,8 +26,7 @@ namespace DataAccess.Concrete.EntityFramework
                                                   join brand in carContext.Brands
                                                   on car.BrandId equals brand.BrandId
 
-                                                  join image in carContext.CarImages
-                                                  on car.CarId equals image.CarId
+                                                
                                                    
                                                   select new CarDetailDto
                                                   {
@@ -38,13 +37,15 @@ namespace DataAccess.Concrete.EntityFramework
                                                       Description = car.Description,
                                                       ModelYear = car.ModelYear,
                                                       Name = car.ModelName,
-                                                      CarImageDate = image.Date,
-                                                      ImagePath = image.ImagePath
+                                                      ImagePath = (from carImage in carContext.CarImages where carImage.CarId == car.CarId select carImage.ImagePath).FirstOrDefault(),
+                                                      //BUNU BÖYLE ALABİLİRSİN DİĞER TÜRLÜ HATA VERİR SQL DE DE DATE DEĞİŞRİREYİMMİ YOK BUNUN ONLA İLİŞKİSİ YOK BU DTO TARAFI 
+                                                      CarImageDate = (from carImage in carContext.CarImages where carImage.CarId == car.CarId select carImage.Date).ToString()
                                                       //CarImageDate = (from carImage in context.CarImages where carImage.CarId == c.CarId select carImage.Date).FirstOrDefault().Da
                                                   }; //IQueryable<CarDetailDto>
-                return result.ToList();
 
+                return result.ToList();
             }
+            //carımagepath onu da burdan çekiyorsun 
         }
     }
 }
