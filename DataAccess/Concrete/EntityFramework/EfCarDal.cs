@@ -42,7 +42,7 @@ namespace DataAccess.Concrete.EntityFramework
                                                       CarImageDate = (from carImage in carContext.CarImages where carImage.CarId == car.CarId select carImage.Date).ToString()
                                                       //CarImageDate = (from carImage in context.CarImages where carImage.CarId == c.CarId select carImage.Date).FirstOrDefault().Da
                                                   }; //IQueryable<CarDetailDto>
-
+                    
                 return result.ToList();
             }
             //carımagepath onu da burdan çekiyorsun 

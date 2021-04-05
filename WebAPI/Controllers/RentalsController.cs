@@ -31,10 +31,12 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-         [HttpGet("getbyid")]
-         public IActionResult GetById(int id)
+        // yenisi = getrentaldetailbycarId  eski ismi = getbyid
+
+        [HttpGet("getrentaldetailbycarId")]
+         public IActionResult GetById(int CarId)
         {
-            var result = _rentalService.GetById(id);
+            var result = _rentalService.GetById(CarId);
             if (result.Success)
             {
                 return Ok(result);
@@ -44,6 +46,7 @@ namespace WebAPI.Controllers
 
         }
 
+       
 
         [HttpGet("getcardetail")]
         public IActionResult GetCarDetailDtos()

@@ -31,7 +31,10 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpGet("getbyid")]
+
+        // getcustomerdetailbyid  eski ismi = getbyid
+
+        [HttpGet("getcustomerdetailbyid")]
         public IActionResult GetById(int id)
         {
             var result = _customerService.GetById(id);
