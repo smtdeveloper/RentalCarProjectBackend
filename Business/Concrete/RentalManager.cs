@@ -22,7 +22,7 @@ namespace Business.Concrete
         }
 
 
-        [ValidationAspect(typeof(RentalValidator))]
+       // [ValidationAspect(typeof(RentalValidator))]
         public IResult Add(Rental entity)
         {
            

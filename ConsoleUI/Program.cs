@@ -20,7 +20,7 @@ namespace ConsoleUI
                 {
 
                     Console.WriteLine("-------------------------------"); 
-                    Console.WriteLine(" Araba ismi : " + item.Name);
+                    Console.WriteLine(" Araba ismi : " + item.ModelName);
                     Console.WriteLine(" Renk       : " + item.ColorName);
                     Console.WriteLine(" Marka      : " + item.BrandName);
                     Console.WriteLine(" Fiyat      : " + item.DailyPrice);

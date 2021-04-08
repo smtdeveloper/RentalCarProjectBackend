@@ -89,21 +89,21 @@ public class Startup
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseCors(builder => builder.WithOrigins("http://localhost:4200").AllowAnyHeader().AllowAnyOrigin());
-
+        app.ConfigureCustomExceptionMiddleware();
         
-
+        app.UseCors(builder => builder.WithOrigins("http://localhost:4200").AllowAnyHeader().AllowAnyOrigin());
+        
         app.UseHttpsRedirection();
 
         app.UseStaticFiles();
 
         app.UseRouting();
-
-           app.UseAuthentication();
-
-            app.UseAuthorization();
-
-            app.UseEndpoints(endpoints =>
+        
+        app.UseAuthentication();
+        
+        app.UseAuthorization();
+        
+        app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });

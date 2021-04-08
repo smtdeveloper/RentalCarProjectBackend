@@ -36,7 +36,7 @@ namespace DataAccess.Concrete.EntityFramework
                                                       DailyPrice = car.DailyPrice,
                                                       Description = car.Description,
                                                       ModelYear = car.ModelYear,
-                                                      Name = car.ModelName,
+                                                      ModelName = car.ModelName,
                                                       ImagePath = (from carImage in carContext.CarImages where carImage.CarId == car.CarId select carImage.ImagePath).FirstOrDefault(),
                                                       //BUNU BÖYLE ALABİLİRSİN DİĞER TÜRLÜ HATA VERİR SQL DE DE DATE DEĞİŞRİREYİMMİ YOK BUNUN ONLA İLİŞKİSİ YOK BU DTO TARAFI 
                                                       CarImageDate = (from carImage in carContext.CarImages where carImage.CarId == car.CarId select carImage.Date).ToString()

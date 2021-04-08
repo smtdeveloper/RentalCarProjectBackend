@@ -17,5 +17,7 @@ namespace Business.Constants
         public static string CarImageLimit = "Bir arabaya 5'ten fazla resim eklenemez.";
         public static string AuthorizationDenied = "Yetkiniz Yok";
         public static string CarAdded= "Araba Eklendi";
+        public static string SuccessfullyPaid = "Başarılı Ödeme";
+        public static string CardAdded = "Card eklendi";
     }
 }
