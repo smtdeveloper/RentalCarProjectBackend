@@ -114,8 +114,7 @@ namespace Business.Concrete
 
         }
 
-        [ValidationAspect(typeof(CarValidator))]
-        [CacheRemoveAspect("ICarSercive.Get")] 
+       
         public IResult Update(Car entity)
         {
             _carDal.Update(entity);
