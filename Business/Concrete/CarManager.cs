@@ -28,8 +28,8 @@ namespace Business.Concrete
             _carDal = carDal;
         }
 
-        [ValidationAspect(typeof(CarValidator))]
-      //   [SecuredOperation("product.add , admin , moderator")]
+       [ValidationAspect(typeof(CarValidator))]
+       [SecuredOperation("product.add,admin,moderator")]
        [CacheRemoveAspect("ICarSercive.Get")]
         public IResult Add(Car entity)
         {
