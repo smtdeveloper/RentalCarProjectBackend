@@ -39,7 +39,8 @@ namespace DataAccess.Concrete.EntityFramework
                                                       ModelName = car.ModelName,
                                                       ImagePath = (from carImage in carContext.CarImages where carImage.CarId == car.CarId select carImage.ImagePath).FirstOrDefault(),
                                                       //BUNU BÖYLE ALABİLİRSİN DİĞER TÜRLÜ HATA VERİR SQL DE DE DATE DEĞİŞRİREYİMMİ YOK BUNUN ONLA İLİŞKİSİ YOK BU DTO TARAFI 
-                                                      CarImageDate = (from carImage in carContext.CarImages where carImage.CarId == car.CarId select carImage.Date).ToString()
+                                                      CarImageDate = (from carImage in carContext.CarImages where carImage.CarId == car.CarId select carImage.Date).ToString(),
+                                                      MinFindex = car.MinFindex
                                                       //CarImageDate = (from carImage in context.CarImages where carImage.CarId == c.CarId select carImage.Date).FirstOrDefault().Da
                                                   }; //IQueryable<CarDetailDto>
                     

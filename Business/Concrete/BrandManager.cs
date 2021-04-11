@@ -28,10 +28,10 @@ namespace Business.Concrete
             this.efColorDal = efColorDal;
         }
 
-        [ValidationAspect(typeof(BrandValidator))]
+        //[ValidationAspect(typeof(BrandValidator))]
         public IResult Add(Brand entity)
         {
-            ValidationTool.Validate(new BrandValidator(), entity);
+          //  ValidationTool.Validate(new BrandValidator(), entity);
             _brandDal.Add(entity);
             return new SuccessResult(Messages.SuccessAdded);
         }

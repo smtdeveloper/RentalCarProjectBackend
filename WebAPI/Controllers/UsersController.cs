@@ -41,6 +41,16 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result);
         }
+        [HttpGet("getbymail")]
+        public IActionResult GetByMail(string mail)
+        {
+            var result = _userService.GetUserByMail(mail);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
 
         [HttpPost("add")]
         public IActionResult Add(User user)
@@ -50,6 +60,17 @@ namespace WebAPI.Controllers
             {
                 return Ok(result);
             }
+            return BadRequest(result);
+        }
+        [HttpPost("addfindexpoint")]
+        public IActionResult AddFindexPoint([FromBody]int userId)
+        {
+            var result = _userService.AddFindexPoint(userId);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+
             return BadRequest(result);
         }
 

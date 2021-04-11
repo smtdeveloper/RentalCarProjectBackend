@@ -12,6 +12,7 @@ using System.Text;
 
 namespace Business.Concrete
 {
+
     public class UserManager : IUserService
     {
         IUserDal _userDal;
@@ -26,6 +27,24 @@ namespace Business.Concrete
            
             _userDal.Add(entity);
             return new SuccessResult(Messages.SuccessAdded);
+        }
+
+        public IResult AddFindexPoint(int userId)
+        {
+            var result = GetByUserId(userId);
+
+            if (result.Data.FindexPoint < 1900)
+            {
+                result.Data.FindexPoint += 50;
+                Update(result.Data);
+            }
+            else
+            {
+                return new ErrorResult(Messages.findexPointMax);
+            }
+
+
+            return new SuccessResult(Messages.findexPointAdd);
         }
 
         public IResult Delete(User entity)
@@ -49,9 +68,19 @@ namespace Business.Concrete
             return _userDal.Get(u => u.Email == email);
         }
 
+        public IDataResult<User> GetByUserId(int userId)
+        {
+            return new SuccessDataResult<User>(_userDal.Get(user => user.Id == userId));
+        }
+
         public List<OperationClaim> GetClaims(User user)
         {
             return _userDal.GetClaims(user);
+        }
+
+        public IDataResult<User> GetUserByMail(string email)
+        {
+            return new SuccessDataResult<User>(_userDal.Get(user=> user.Email == email));
         }
 
         public IResult Update(User entity)

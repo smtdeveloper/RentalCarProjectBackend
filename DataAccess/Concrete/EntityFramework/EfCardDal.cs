@@ -9,6 +9,5 @@ namespace DataAccess.Concrete.EntityFramework
 {
     public class EfCardDal : EfEntityRepositoryBase<Card, ReCarContext>, ICardDal
     {
-
     }
 }

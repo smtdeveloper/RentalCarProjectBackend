@@ -19,5 +19,7 @@ namespace Business.Constants
         public static string CarAdded= "Araba Eklendi";
         public static string SuccessfullyPaid = "Başarılı Ödeme";
         public static string CardAdded = "Card eklendi";
+        internal static string findexPointMax = "Findeks Puanınız 1900";
+        internal static string findexPointAdd = "20 Findeks Puanı Eklendi";
     }
 }
