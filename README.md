@@ -1,5 +1,3 @@
-GitHub License GitHub Repo stars GitHub repo size
-
 
 
 Rental Car Project - Samet Akca / @SMTcoder  <br>
