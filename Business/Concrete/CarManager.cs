@@ -101,18 +101,7 @@ namespace Business.Concrete
             return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(c => c.CarId == carId), Messages.SuccessListed);
         }
 
-        public IDataResult<List<CarDetailDto>>  GetCarDetailDtos()
-        {
-
-            //if (DateTime.Now.Hour == 5)
-            //{
-            //    return new ErrorDataResult<List<CarDetailDto>>(Messages.MaintenanceTime);
-
-            //}
-
-            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(), Messages.SuccessListed);
-
-        }
+       
 
        
         public IResult Update(Car entity)
