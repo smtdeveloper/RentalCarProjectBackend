@@ -33,7 +33,7 @@ namespace WebAPI.Controllers
         [HttpGet("brandid")]
         public IActionResult GetByBrandId(int id)
         {
-            var result = _brandService.GetByBrandId(id);
+            var result = _brandService.GetById(id);
             if (result.Success)
             {
                 return Ok(result);
