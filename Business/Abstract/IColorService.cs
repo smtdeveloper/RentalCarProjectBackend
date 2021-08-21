@@ -8,6 +8,6 @@ namespace Business.Abstract
 {
    public interface IColorService : IBussiniesRepository<Color>
     {
-        IDataResult<List<Color>>  GetByColorId(int id);
+   
     }
 }
