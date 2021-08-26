@@ -8,12 +8,14 @@ using Core.Aspects.Autofac.Transaction;
 using Core.Aspects.Autofac.Validation;
 using Core.Aspects.CrossCuttingConcerns.Validation;
 using Core.Utilities;
+using Core.Utilities.Business;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using Entities.DTOs;
 using FluentValidation;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Business.Concrete
@@ -21,11 +23,13 @@ namespace Business.Concrete
     public class CarManager : ICarService
     {
         ICarDal _carDal;
+        ICarImageService _carImageService;
 
        
-        public CarManager(ICarDal carDal)
+        public CarManager(ICarDal carDal, ICarImageService carImageService)
         {
             _carDal = carDal;
+            _carImageService = carImageService;
         }
 
        [ValidationAspect(typeof(CarValidator))]
@@ -33,7 +37,14 @@ namespace Business.Concrete
        [CacheRemoveAspect("ICarSercive.Get")]
         public IResult Add(Car entity)
         {
-            //business codes (İş Kodları)
+
+           IResult result = BusinessRules.Run(CheckİfCarBrand(entity.BrandId));
+
+            if (!result.Success)
+            {
+                return result;
+            }
+
             _carDal.Add(entity);
             return new SuccessResult(Messages.CarAdded);
         }
@@ -110,5 +121,18 @@ namespace Business.Concrete
             return new SuccessResult(Messages.SuccessUpdated);
 
         }
+
+
+        private IResult CheckİfCarBrand(int branId)
+        {
+            int result = _carDal.GetAll(p => p.BrandId == branId).Count();
+            if (result > 20)
+            {
+                return new ErrorResult(Messages.CarCountOfBrandLimit);
+            }
+
+            return new SuccessResult();
+        }
+
     }
 }
