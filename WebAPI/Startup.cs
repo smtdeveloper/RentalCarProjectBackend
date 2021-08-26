@@ -34,6 +34,8 @@ public class Startup
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddControllers();
+            services.AddSwaggerDocument();
         services.AddControllers();
 
         //services.AddSingleton<ICarService, CarManager>();  // referansýný tutar new'lemeye gerek kalýmýyor :)
@@ -55,9 +57,9 @@ public class Startup
         //services.AddSingleton<IRentalDal, EfRentalDal>();
 
 
-        var tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();
+             var tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();
 
-        services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddJwtBearer(options =>
             {
                 options.TokenValidationParameters = new TokenValidationParameters
@@ -72,12 +74,12 @@ public class Startup
                 };
             });
 
-        services.AddDependencyResolvers(new ICoreModule[] {
+            services.AddDependencyResolvers(new ICoreModule[] {
                new CoreModule()
             });
 
 
-        services.AddCors();
+             services.AddCors();
 
         } 
 
@@ -98,6 +100,8 @@ public class Startup
         app.UseStaticFiles();
 
         app.UseRouting();
+        app.UseOpenApi();
+        app.UseSwaggerUi3();
         
         app.UseAuthentication();
         
